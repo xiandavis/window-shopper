@@ -45,14 +45,51 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbD-he-nay">
+                                <rect key="frame" x="30" y="324" width="315" height="62.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tm-tB-sFn">
+                                <rect key="frame" x="134.66666666666666" y="391.33333333333331" width="106" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="gZZ-co-FA8"/>
+                                    <constraint firstAttribute="height" constant="28" id="jrt-08-RJn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfS-tB-jRX">
+                                <rect key="frame" x="20" y="728" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BwX-Hn-13I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Clear Calculator">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearCalculatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="acm-Zg-CRP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="5tm-tB-sFn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0UH-aE-Ox5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S73-Wg-TvM" secondAttribute="trailing" constant="30" id="973-nX-sTq"/>
                             <constraint firstItem="S73-Wg-TvM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Bk6-21-Vfy"/>
                             <constraint firstItem="xSx-16-kLm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Cun-l4-xdu"/>
                             <constraint firstItem="NEL-u5-Nmg" firstAttribute="top" secondItem="S73-Wg-TvM" secondAttribute="bottom" constant="25" id="F73-mZ-EUd"/>
                             <constraint firstItem="xSx-16-kLm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Lvx-ht-eQw"/>
+                            <constraint firstItem="SbD-he-nay" firstAttribute="top" secondItem="NEL-u5-Nmg" secondAttribute="bottom" constant="45" id="M5e-p9-Cqa"/>
+                            <constraint firstItem="bfS-tB-jRX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Yy3-Y9-D9x"/>
+                            <constraint firstItem="SbD-he-nay" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="az5-Jz-htu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bfS-tB-jRX" secondAttribute="bottom" constant="20" id="fSA-UC-xdA"/>
+                            <constraint firstItem="5tm-tB-sFn" firstAttribute="top" secondItem="SbD-he-nay" secondAttribute="bottom" constant="5" id="gRQ-WZ-hzw"/>
+                            <constraint firstItem="SbD-he-nay" firstAttribute="width" secondItem="NEL-u5-Nmg" secondAttribute="width" id="hUq-Xu-XaL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bfS-tB-jRX" secondAttribute="trailing" constant="20" id="i09-iz-Xls"/>
                             <constraint firstItem="xSx-16-kLm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iSm-zf-VVB"/>
                             <constraint firstItem="xSx-16-kLm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jxb-Xn-XrG"/>
                             <constraint firstItem="NEL-u5-Nmg" firstAttribute="leading" secondItem="S73-Wg-TvM" secondAttribute="leading" id="koI-NW-ir8"/>
@@ -65,7 +102,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="hoursLbl" destination="5tm-tB-sFn" id="GTq-gH-sIS"/>
                         <outlet property="priceTxt" destination="NEL-u5-Nmg" id="hRA-OD-DAu"/>
+                        <outlet property="resultLbl" destination="SbD-he-nay" id="K8V-jT-XFe"/>
                         <outlet property="wageTxt" destination="S73-Wg-TvM" id="3yo-0b-GaU"/>
                     </connections>
                 </viewController>

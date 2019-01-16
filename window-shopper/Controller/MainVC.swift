@@ -13,6 +13,9 @@ class MainVC: UIViewController {
     @IBOutlet weak var wageTxt: CurrencyTextField!
     @IBOutlet weak var priceTxt: CurrencyTextField!
     
+    @IBOutlet weak var resultLbl: UILabel!
+    @IBOutlet weak var hoursLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,15 +27,32 @@ class MainVC: UIViewController {
         
         wageTxt.inputAccessoryView = calcBtn
         priceTxt.inputAccessoryView = calcBtn
+        
+        resultLbl.isHidden = true // want these to start off invisible
+        hoursLbl.isHidden = true
     }
 
     // Mark deletes boilerplate didReceiveMemoryWarning()
     
     @objc func calculate() { // @objc added by compiler after clicking Fix button. Earlier versions of Swift did this under the hood automatically, but Swift 4 wants you to know when a func is an obj-c runtime func
         
-        print("We got here")
+        // Mark deletes: print("We got here")
+        if let wageTxt = wageTxt.text, let priceTxt = priceTxt.text { // wageTxt & priceTxt here are local scope variables to this func, they are not the same vars with the same name used outside of calculate(). Mark explains that professionals will often use identical names for vars. This statement will only execute if assignments are successful (if neither text field is nil/ left blank)
+            if let wage = Double(wageTxt), let price = Double(priceTxt) { // This statement will only execute if assignments are successful (if neither text field is non-numeral)
+                view.endEditing(true) // escapes keyboard
+                resultLbl.isHidden = false
+                hoursLbl.isHidden = false
+                resultLbl.text = "\(Wage.getHours(forWage: wage, andPrice: price))"
+            }
+        }
     }
-
+    @IBAction func clearCalculatorPressed(_ sender: Any) {
+        resultLbl.isHidden = true
+        hoursLbl.isHidden = true
+        wageTxt.text = ""
+        priceTxt.text = ""
+    }
+    
 
 
 }
